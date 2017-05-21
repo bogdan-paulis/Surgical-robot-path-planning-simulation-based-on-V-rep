@@ -26,30 +26,45 @@ if (clientID>-1)
     
     % First read from V-REP of a particular object position
     [returnCode,trcarPos] = vrep.simxGetObjectPosition(clientID,trcar,-1, vrep.simx_opmode_streaming);
-    trcarPos
+    pause(1);
+    [returnCode,trcarPos] = vrep.simxGetObjectPosition(clientID,trcar,-1, vrep.simx_opmode_buffer);
+
     % Further reads of the same object position
-    [returnCode,prismaticJointS22Pos] = vrep.simxGetJointPosition(clientID,prismaticJointS22, vrep.simx_opmode_buffer)
-    [returnCode,prismaticJointS11Pos] = vrep.simxGetJointPosition(clientID,prismaticJointS11, vrep.simx_opmode_buffer)
-    [returnCode,prismaticJointS01Pos] = vrep.simxGetJointPosition(clientID,prismaticJointS01, vrep.simx_opmode_buffer)
+    [returnCode,prismaticJointS22Pos] = vrep.simxGetJointPosition(clientID,prismaticJointS22, vrep.simx_opmode_streaming);
+    pause(1);
+    [returnCode,prismaticJointS22Pos] = vrep.simxGetJointPosition(clientID,prismaticJointS22, vrep.simx_opmode_buffer);
+
+    [returnCode,prismaticJointS21Pos] = vrep.simxGetJointPosition(clientID,prismaticJointS21, vrep.simx_opmode_streaming);
+    pause(1);
+    [returnCode,prismaticJointS21Pos] = vrep.simxGetJointPosition(clientID,prismaticJointS21, vrep.simx_opmode_buffer);
+
+    
+    
+    [returnCode,prismaticJointS11Pos] = vrep.simxGetJointPosition(clientID,prismaticJointS11, vrep.simx_opmode_streaming);
+    pause(1);
+    [returnCode,prismaticJointS11Pos] = vrep.simxGetJointPosition(clientID,prismaticJointS11, vrep.simx_opmode_buffer);
+    
+    [returnCode,prismaticJointS01Pos] = vrep.simxGetJointPosition(clientID,prismaticJointS01, vrep.simx_opmode_streaming);
+    pause(1);
+    [returnCode,prismaticJointS01Pos] = vrep.simxGetJointPosition(clientID,prismaticJointS01, vrep.simx_opmode_buffer);
     
     % Set joint position
     d=0.017;
-    eyeX=0;
+    eyeX=trcarPos(1);
     eyeDx=10;
-    eyeY=0;
+    eyeY=trcarPos(2);
     eyeDy=10;
-    
-    joint2=prismaticJointS22Pos/1000+dx
-    %[returnCode] = vrep.simxSetJointTargetPosition(clientID, prismaticJointS22, joint2,vrep.simx_opmode_blocking);
+    joint2=prismaticJointS22Pos+dx;
+    [returnCode] = vrep.simxSetJointTargetPosition(clientID, prismaticJointS22, joint2,vrep.simx_opmode_blocking);
     theta1=atan((eyeX-joint2)/eyeDx);
-    joint1=joint2-d*tan(theta1)
-    %[returnCode] = vrep.simxSetJointTargetPosition(clientID, prismaticJointS21, joint1,vrep.simx_opmode_blocking);
+    joint1=joint2-d*tan(theta1);
+    [returnCode] = vrep.simxSetJointTargetPosition(clientID, prismaticJointS21, joint1,vrep.simx_opmode_blocking);
     
-    joint3=prismaticJointS11Pos/1000+dy
-    %[returnCode] = vrep.simxSetJointTargetPosition(clientID, prismaticJointS11, joint3,vrep.simx_opmode_blocking);
-    theta2=atan((joint3-eyeY)/eyeDy);;
-    joint4=joint3+d*tan(theta2)
-    %[returnCode] = vrep.simxSetJointTargetPosition(clientID, prismaticJointS12, joint4,vrep.simx_opmode_blocking);
+    joint3=prismaticJointS11Pos/1000+dy;
+    [returnCode] = vrep.simxSetJointTargetPosition(clientID, prismaticJointS11, joint3,vrep.simx_opmode_blocking);
+    theta2=atan((joint3-eyeY)/eyeDy);
+    joint4=joint3+d*tan(theta2);
+    [returnCode] = vrep.simxSetJointTargetPosition(clientID, prismaticJointS12, joint4,vrep.simx_opmode_blocking);
  
     %[returnCode] = vrep.simxSetJointTargetPosition(clientID, prismaticJointS01, prismaticJointS01Pos+dz,vrep.simx_opmode_blocking);
     
