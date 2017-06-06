@@ -7,6 +7,7 @@ Daniel-Connect the motor control from V-Rep to Matlab
 
 Bogdan-Inverse Kinematics
 
-Philip-Simulink interface for GUI control of the motors
+Phillip - Simulink interface for GUI control of the motors
+          --> connect it to controling function (Bogdan / Miguel)
 
 Timo-Trajectory planning(heart shape, square etc.)
