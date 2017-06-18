@@ -1,0 +1,100 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%2345678901234567890123456789012345678901234567890123456789012345678901234567890
+%        1         2         3         4         5         6         7         8
+
+%\documentclass[letterpaper, 10 pt, conference]{ieeeconf}  % Comment this line out if you need a4paper
+
+\documentclass[a4paper, 10pt, conference]{ieeeconf}      % Use this line for a4 paper
+
+%\IEEEoverridecommandlockouts                              % This command is only needed if
+                                                          % you want to use the \thanks command
+
+\overrideIEEEmargins                                      % Needed to meet printer requirements.
+
+% See the \addtolength command later in the file to balance the column lengths
+% on the last page of the document
+
+% The following packages can be found on http:\\www.ctan.org
+\usepackage{graphics} % for pdf, bitmapped graphics files
+%\graphicspath{{../images/}}
+\usepackage{epsfig} % for postscript graphics files
+\usepackage{mathptmx} % assumes new font selection scheme installed
+\usepackage{times} % assumes new font selection scheme installed
+\usepackage{amsmath} % assumes amsmath package installed
+\usepackage{amssymb}  % assumes amsmath package installed
+\usepackage{epstopdf}
+\usepackage{color}
+\definecolor{tumblue}{rgb}{0, 0.4, 0.74}
+
+\title{\LARGE \bf
+Controlling an Ophthalmic Surgery Robot with Matlab \& Simulink
+}
+%the original title below wasnt really appropriate any more I think...
+%Preparation of Papers for Robot-assisted Surgery in Clinics*
+
+
+%\author{Various Authors% <-this % stops a space
+%\\Technische Universit\"at M\"unchen\\
+%Email: also various}
+%commented this out because our names etc are already on the title page
+
+
+\begin{document}
+
+\input{coverpage}
+
+\maketitle
+\thispagestyle{empty}
+\pagestyle{empty}
+
+\begin{abstract}
+\input{contents/abstract}
+\end{abstract}
+
+\section{INTRODUCTION}
+\input{contents/introduction}
+
+\section{Connecting VREP with Matlab (Daniel)}
+\input{contents/daniel}
+
+\section{Inverse Kinematics (Bogdan)}
+\input{contents/bogdan}
+
+\section{Simulink GUI for Control (Phillip)}
+\input{contents/phillip}
+
+\section{Creation of Shapes (Timo)}
+\input{contents/timo}
+
+\section{Getting the needle to the entry point of the eye (Matthias)}
+I hope this is what you were doing, I wasn\rq t quite sure any more, because it wasn\rq t listed in the ToDo...\\
+\input{contents/matthias}
+\section{Different Algorithm for Robot control (Miguel)}
+Same as Matthias ;)\\
+\input{contents/miguel}
+
+\section*{Abbreviations and Acronyms}
+Define abbreviations and acronyms - not sure if we need this?
+
+\addtolength{\textheight}{-12cm} 
+% This command serves to balance the column lengths
+% on the last page of the document manually. It shortens
+% the textheight of the last page by a suitable amount.
+% This command does not take effect until the next page
+% so it should come on the page before the last. Make
+% sure that you do not shorten the textheight too much.
+
+\section*{APPENDIX}
+
+Appendixes should appear before the acknowledgment - keeping this section for god knows what...
+
+\section*{ACKNOWLEDGMENT}
+
+Same...
+
+I put the Master\rq s Thesis in the bibliography, wasn\rq t sure whether we needed anything else - maybe the Algorithm (that I  think) Miguel worked on.
+\begin{thebibliography}{99}
+\bibitem{c1} P. Gschirr, Control and Simulation of a Robotic Setup for Assisting Ophthalmic Surgery, Master Thesis at the Computer Science Department of the Technical University of Munich. Munich: 2014
+\end{thebibliography}
+
+\end{document}
