@@ -26,7 +26,10 @@
 % x=[0 0 0];
 
 x_d= zeros(1,3);
+
+%lambda is how far the needle went into the virtual fixture point
 lambda= 1;
+
 timeDelta=10e-3;
 
 q= vrep_getq();
@@ -35,6 +38,7 @@ x=H(1:3,4)';
 x_d=x_d+v_desired()*timeDelta;
 e= x_d-x;
 
+
 % if mode == Vfix then
 
 % 	e_ext=getExtendedError(e,lambda)
@@ -42,9 +46,14 @@ e= x_d-x;
 % 	[q_dot, lambda_dot] = transpose(J_ext)*K_ext*e_ext;
 % 	lambda = lambda + lambda_dot*timeDelta;
 
-	else
-	J=j_std(q);
+% 	else
+
+    %6x6 Jacobian
+	J_temp=j_std(q);
+    %6x3 Jacobian
+    J=J_temp(:,4:6);
+    
 	q_dot=transpose(J)*K_p*e;
 
-end if;
+% end if;
 vrep_set(q,q_dot);

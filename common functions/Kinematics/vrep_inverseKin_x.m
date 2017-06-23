@@ -11,9 +11,9 @@ clientID=vrep.simxStart('127.0.0.1',19999,true,true,5000,5);
 
 if (clientID>-1)
     disp('Connected');
-    % code
+    code
     
-    % Handles
+    Handles
     [returnCode,trcar] = vrep.simxGetObjectHandle(clientID,'STL_Trcar',vrep.simx_opmode_blocking);
     [returnCode,needleTip] = vrep.simxGetObjectHandle(clientID,'NeedleTip',vrep.simx_opmode_blocking);
     
@@ -22,10 +22,10 @@ if (clientID>-1)
     [returnCode,prismaticJointS11] = vrep.simxGetObjectHandle(clientID,'Prismatic_joint_S11',vrep.simx_opmode_blocking);
     [returnCode,prismaticJointS12] = vrep.simxGetObjectHandle(clientID,'Prismatic_joint_S12',vrep.simx_opmode_blocking);
     
-    %[returnCode,prismaticJointS00] = vrep.simxGetObjectHandle(clientID,'Prismatic_joint_S00',vrep.simx_opmode_blocking);
+    [returnCode,prismaticJointS00] = vrep.simxGetObjectHandle(clientID,'Prismatic_joint_S00',vrep.simx_opmode_blocking);
     [returnCode,prismaticJointS01] = vrep.simxGetObjectHandle(clientID,'Prismatic_joint_S01',vrep.simx_opmode_blocking);
     
-    % First read from V-REP of a particular object position
+    First read from V-REP of a particular object position
     [returnCode,trcarPos] = vrep.simxGetObjectPosition(clientID,trcar,-1, vrep.simx_opmode_streaming);
     pause(0.1);
      % Further reads of the same object position
