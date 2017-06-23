@@ -1,9 +1,13 @@
 % V-REP Simulink Surgical Robot Init
 
+disp('V-Rep Simulation should be running before starting this script');
 global vrep clientID tunicExt tunicInt retinaPoint1 retinaPoint2;
 global retinaPoint3 retinaPoint4 needleTip;
 global prismaticJointS22 prismaticJointS21 prismaticJointS11 
 global prismaticJointS12 prismaticJointS00 prismaticJointS01
+
+%read key points for path planning
+import_data;
 
 vrep=remApi('remoteApi'); % using the prototype file (remoteApiProto.m)
 vrep.simxFinish(-1); % just in case, close all opened connections

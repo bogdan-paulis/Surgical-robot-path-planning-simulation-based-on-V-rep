@@ -1,0 +1,22 @@
+input: k_p, k_ext, x
+x_d= x;
+lambda= 1;
+
+while true:
+q= vrep_getq;
+x=fKin(q);
+x_d=x_d+v_desired()*timeDelta;
+e= x_d-x;
+
+if mode = Vfix then
+	e_ext=getExtendedError(e,lambda)
+	j_ext=j_Ext(q,lambda);
+	[q_dot, lambda_dot] = trans(J_ext)*K_ext*e_ext;
+	lambda = lambda + lambda_dot*timeDelta;
+
+	else
+	J=j_std(q);
+	q_dot=trans(J)*K_p*e;
+
+end if;
+vrep_set(q,q_dot);
