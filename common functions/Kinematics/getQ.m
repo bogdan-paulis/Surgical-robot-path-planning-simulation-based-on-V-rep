@@ -14,13 +14,13 @@ if (clientID>-1)
     %vrep_setangles
     
     % First read from V-REP of a particular object position
-    [returnCode,prismaticJointS22Pos] = vrep.simxGetJointPosition(clientID,prismaticJointS22, vrep.simx_opmode_streaming);
-    [returnCode,prismaticJointS21Pos] = vrep.simxGetJointPosition(clientID,prismaticJointS21, vrep.simx_opmode_streaming);
+    %[returnCode,prismaticJointS22Pos] = vrep.simxGetJointPosition(clientID,prismaticJointS22, vrep.simx_opmode_streaming);
+    %[returnCode,prismaticJointS21Pos] = vrep.simxGetJointPosition(clientID,prismaticJointS21, vrep.simx_opmode_streaming);
     
-    [returnCode,prismaticJointS11Pos] = vrep.simxGetJointPosition(clientID,prismaticJointS11, vrep.simx_opmode_streaming);
-    [returnCode,prismaticJointS12Pos] = vrep.simxGetJointPosition(clientID,prismaticJointS12, vrep.simx_opmode_streaming);
+    %[returnCode,prismaticJointS11Pos] = vrep.simxGetJointPosition(clientID,prismaticJointS11, vrep.simx_opmode_streaming);
+    %[returnCode,prismaticJointS12Pos] = vrep.simxGetJointPosition(clientID,prismaticJointS12, vrep.simx_opmode_streaming);
     
-    [returnCode,prismaticJointS01Pos] = vrep.simxGetJointPosition(clientID,prismaticJointS01, vrep.simx_opmode_streaming);
+    %[returnCode,prismaticJointS01Pos] = vrep.simxGetJointPosition(clientID,prismaticJointS01, vrep.simx_opmode_streaming);
 
     
     %pause(0.1);
