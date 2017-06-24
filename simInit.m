@@ -23,7 +23,7 @@ if (clientID>-1)
     maxJointPos = 15 * 10^(-3); % 0.015;  % +15mm
     jointPrecision = 1 * 10^(-6); % 1um
     transientTime = 0.1; % time until considered steady-state;
-    
+    blocking= vrep.simx_opmode_blocking;
     % Handles
     [returnCode,tunicExt] = vrep.simxGetObjectHandle(clientID,'STL_Imported_sub0',vrep.simx_opmode_blocking);
     [returnCode,tunicInt] = vrep.simxGetObjectHandle(clientID,'STL_Imported_sub10',vrep.simx_opmode_blocking);
