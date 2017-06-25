@@ -32,11 +32,14 @@ lambda= 1;
 
 timeDelta=10e-3;
 
-q= vrep_getq();
+q= vrep_getQ(clientID, blocking)
 H=fKin(q);
 x=H(1:3,4)';
 x_d=x_d+v_desired()*timeDelta;
-e= x_d-x;
+H(1:3,4)=x_d';
+%e= x_d-x;
+q_new=IK(H);
+vrep_setQ(q_new, clientID, blocking);
 
 
 % if mode == Vfix then
@@ -49,11 +52,11 @@ e= x_d-x;
 % 	else
 
     %6x6 Jacobian
-	J_temp=j_std(q);
+	%J_temp=j_std(q);
     %6x3 Jacobian
-    J=J_temp(:,4:6);
+    %J=J_temp(:,4:6);
     
-	q_dot=transpose(J)*K_p*e;
+	%q_dot=transpose(J)*K_p*e;
 
 % end if;
-vrep_set(q,q_dot);
+vrep_setQ(q, clientID, blocking);

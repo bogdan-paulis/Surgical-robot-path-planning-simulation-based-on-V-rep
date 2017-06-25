@@ -10,9 +10,11 @@ function [ returnCode ] = Vrep_setJointPos( clientID,jointHandler, jointPos, opm
  %position mode
  
  global vrep;
- 
-  [returnCode] = vrep.simxSetJointTargetPosition(clientID, jointHandler, jointPos,opmode);
- 
 
+  [returnCode] = vrep.simxSetJointTargetPosition(clientID, jointHandler, jointPos,opmode);
+  if returnCode ~= vrep.simx_return_ok 
+      vrep_checkReturnCode( returnCode, 'Vrep_setJointPos');
+  end
+  
 end
 
