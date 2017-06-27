@@ -1,0 +1,15 @@
+Display a Library in the Library Browser
+
+Create a folder in the MATLAB® path for the top-level library and its sublibraries.
+
+You must store each top-level library that you want to appear in the Library Browser in its own folder on the MATLAB path. Two top-level libraries cannot exist in the same folder.
+
+Create or copy the top-level library and its sublibraries into the folder you created in the MATLAB path.
+
+In the folder for the top-level library, include a slblocks.m file.
+
+The approach you use to create the slblocks.m file depends on your requirements for describing the library:
+
+If a minimal slblocks.m file meets your needs, then create a new slblocks.m file, based on the example below
+
+If you want to describe the library more fully, consider copying an existing slblocks.m file to use as a template, editing the copy to describe your library (see below).
