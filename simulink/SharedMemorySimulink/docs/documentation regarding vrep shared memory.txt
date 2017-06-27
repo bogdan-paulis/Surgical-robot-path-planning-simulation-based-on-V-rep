@@ -1,0 +1,6 @@
+documentation regarding vrep shared memory
+
+both 
+share memory base name and device number must be identical in vrep and simulink for communication to happen.
+
+the sizes refer to how many bytes are shuffled through. a byte is 8 buts long. matlab is currently 64bit and vrep 3.2.x is 32bit. as a resulta single in matlab (32 bit) is a float in vrep, and should be declared as a float int the data inputs and outputs in the simulink block.

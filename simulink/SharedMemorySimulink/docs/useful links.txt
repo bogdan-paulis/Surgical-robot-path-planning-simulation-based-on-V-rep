@@ -1,0 +1,4 @@
+https://de.mathworks.com/help/simulink/ug/adding-libraries-to-the-library-browser.html
+
+close simulink from the console
+https://de.mathworks.com/help/simulink/slref/bdclose.html
