@@ -106,6 +106,9 @@ if (clientID>-1)
     [returnCode,revoluteJointS11Pos] = vrep.simxGetJointPosition(clientID,revoluteJointS11, mode);
     vrep_checkReturnCode( returnCode, 'revoluteJointS11Pos');
     
+    q_init=vrep_getQ(clientID, blocking);
+    H=fKin(q_init);
+    x_init=H(1:3,4)';
     pause(0.1);
     
 end

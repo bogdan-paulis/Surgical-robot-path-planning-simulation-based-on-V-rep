@@ -6,6 +6,8 @@ function ret=controlLoop(clientID,mode,xinit,v_desired,timeDelta)
 
 x_d=xinit;
 
+
+
 q= vrep_getQ(clientID, mode);
 H=fKin(q);
 x=H(1:3,4)'

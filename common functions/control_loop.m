@@ -25,7 +25,7 @@
 % k_ext=0
 % x=[0 0 0];
 
-x_d= zeros(1,3);
+%x_d= zeros(1,3);
 
 %lambda is how far the needle went into the virtual fixture point
 lambda= 1;
@@ -35,10 +35,10 @@ timeDelta=10e-3;
 q= vrep_getQ(clientID, blocking)
 H=fKin(q);
 x=H(1:3,4)';
-x_d=x_d+v_desired()*timeDelta;
+x_d=x+v_desired()*timeDelta;
 H(1:3,4)=x_d';
 %e= x_d-x;
-q_new=IK(H);
+q_new=IK(H)
 vrep_setQ(q_new, clientID, blocking);
 
 
