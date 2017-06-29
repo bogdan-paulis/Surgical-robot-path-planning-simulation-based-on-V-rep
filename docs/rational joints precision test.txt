@@ -1,0 +1,8 @@
+Q2: set:0.005   get:0.2467  :: 86% accuracy
+Q4: set:0.005   get:0.2851
+
+Q2: set:0.01   get:0.4294 :: 75% accuraccy
+Q4: set:0.01   get:0.5385
+
+0.01 radians -> 0.5729 deg
+0.005 radians -> 0.2864 deg
