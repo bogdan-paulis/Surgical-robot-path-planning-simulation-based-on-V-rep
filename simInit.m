@@ -110,5 +110,6 @@ if (clientID>-1)
     H=fKin(q_init);
     x_init=H(1:3,4)';
     pause(0.1);
-    
+    %%the position of end effector when qin=zeros;
+    x_home=[-0.0540 0.0825 0.0545];
 end
