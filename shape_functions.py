@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # circle
-f = open('circle.txt', 'w')
+f = open('docs/circle.txt', 'w')
 
 step_size = 0.02
 radius = 1.0
@@ -50,7 +50,7 @@ plt.show()
 
 
 # heart shape
-f = open('heart.txt', 'w')
+f = open('docs/heart.txt', 'w')
 
 x_coor = []
 y_coor = []
