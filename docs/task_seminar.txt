@@ -1,0 +1,6 @@
+JAcobian corrected
+speed control using jacobian
+Draw Heart Precisely - done
+Draw Sqaure Precisely - done
+Draw Circle Precisely - done
+kinematic calibration - done
