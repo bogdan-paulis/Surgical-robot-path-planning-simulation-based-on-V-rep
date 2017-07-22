@@ -57,7 +57,7 @@ h34= d1 + q0 + l1*c1-l2*s1+c3*s1*(d4+q4)+l3*s1*s3;
 H=[h11,h12,h13,h14;
 h21, h22,h23,h24;
 h31,h32,h33,h34;
-0,0,0,1]
+0,0,0,1];
 
 matlabFunction(H,'file','fKin.m')
 
