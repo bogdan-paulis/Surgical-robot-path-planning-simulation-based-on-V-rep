@@ -11,8 +11,11 @@ if (clientID>-1)
     
     % Handles
     [returnCode,needleTip] = vrep.simxGetObjectHandle(clientID,'NeedleTip',vrep.simx_opmode_blocking);
+    vrep_checkReturnCode( returnCode, 'simxGetObjectHandle' )
     
     [returnCode,prismaticJointS22] = vrep.simxGetObjectHandle(clientID,'Prismatic_joint_S22',vrep.simx_opmode_blocking);
+     vrep_checkReturnCode( returnCode, 'simxGetObjectHandle' )
+     
     [returnCode,prismaticJointS21] = vrep.simxGetObjectHandle(clientID,'Prismatic_joint_S21',vrep.simx_opmode_blocking);
     [returnCode,prismaticJointS11] = vrep.simxGetObjectHandle(clientID,'Prismatic_joint_S11',vrep.simx_opmode_blocking);
     [returnCode,prismaticJointS12] = vrep.simxGetObjectHandle(clientID,'Prismatic_joint_S12',vrep.simx_opmode_blocking);
@@ -29,6 +32,7 @@ if (clientID>-1)
     % Set joint position
     joint1 = 0.01;
     [returnCode] = vrep.simxSetJointTargetPosition(clientID, prismaticJointS22,joint1,vrep.simx_opmode_blocking);
+     vrep_checkReturnCode( returnCode, 'simxSetJointTargetPosition' )
 
     pause(2);
     % end code

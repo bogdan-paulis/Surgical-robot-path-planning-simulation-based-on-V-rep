@@ -14,7 +14,7 @@ simx_return_initialize_error_flag   =64;
 
 switch returnCode
    case simx_return_ok
-    %disp([functionCaller, 'no error:simx_return_ok']);
+%     disp([functionCaller, 'no error:simx_return_ok']);
    case simx_return_novalue_flag
     disp(['error in ',functionCaller, ' :simx_return_novalue_flag']);
   case simx_return_timeout_flag
