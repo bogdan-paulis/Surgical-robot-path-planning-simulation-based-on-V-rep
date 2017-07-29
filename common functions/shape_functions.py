@@ -81,13 +81,13 @@ def make_heart(double_points = True, draw=True, step_size = 0.02, z_const = 0.0)
 
 def make_quare(double_points = True, draw=True, step_size = 0.1, z_const = 0.0):
     # square shape
-    f = open('../docs/heart.txt', 'w')
+    f = open('../docs/square.txt', 'w')
     mw = csv.writer(f, delimiter=" ")
 
     coords1 = [(x, 1.0, z_const) for x in np.arange(start=0.0, stop=1.0, step=step_size)]
     coords2 = [(1.0, y, z_const) for y in np.arange(start=1.0, stop=-1.0 - step_size, step=-step_size)]
     coords3 = list(reversed([(x,-y,z) for (x,y,z) in coords1]))
-    coords4 = list(reversed([(-x,-y,z) for (x,y,z) in coords1]))
+    coords4 = [(-x,-y,z) for (x,y,z) in coords1]
     coords5 = list(reversed([(-x,y,z) for (x,y,z) in coords2]))
     coords6 = list(reversed([(-x,y,z) for (x,y,z) in coords1]))
     coords = coords1 + coords2 + coords3 + coords4 + coords5 + coords6
@@ -99,7 +99,7 @@ def make_quare(double_points = True, draw=True, step_size = 0.1, z_const = 0.0):
     # write file
     for i in range(len(coords)):
         mw.writerow([i, coords[i][0], coords[i][1], coords[i][2]])
-    f.close()
+    f.close() # manually correct four numerical errors (not perfectly 0)
 
     # draw?
     if draw:
@@ -109,6 +109,6 @@ def make_quare(double_points = True, draw=True, step_size = 0.1, z_const = 0.0):
 
 
 if __name__ == "__main__":
-    #make_circle()
-    #make_heart()
+    make_circle()
+    make_heart()
     make_quare()
